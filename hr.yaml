@@ -2,21 +2,6 @@ openapi: 3.0.0
 info:
   version: "1.0.0"
   title: Simple HR API
-  contact:
-    name: pasindu
-    email: pasinduf@wso2.com
-  license:
-    name: pasindulicense
-    url: http://license.foo.com
-
-servers:
-  # Added by API Auto Mocking Plugin
-  - description: SwaggerHub API Auto Mocking
-    url: https://virtserver.swaggerhub.com/SULAKSHANA1234567/HR_API/1.0.0
-  - url: https://dev.foo.com/v1
-    description: Dev server
-  - url: https://prod.foo.com/v1
-    description: Prod server
 
 paths:
   /employees:
