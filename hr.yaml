@@ -56,6 +56,43 @@ paths:
       responses:
         200:
           description: Successfully created the employee
+  /employee_details:
+    get:
+      description: Obtain information about employees from HR database
+      parameters:
+        - name: bodyLimit
+          in: query
+          description: The amount of employees returned
+          schema:
+            type: integer
+        - name: pageLimit
+          in: query
+          description: The pages to return employees info
+          schema:
+            type: integer
+      responses:
+        200:
+          description: Successfull pull of employee info
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Employees"
+    post:
+      description: Creates a new employee in database
+      requestbody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              $ref: "#/components/schemas/Employee"
+          application/xml:
+            schema:
+              type: object
+              $ref: "#/components/schemas/Employee"
+      responses:
+        200:
+          description: Successfully created the employee
   /employees/{id}:
     get:
       description:

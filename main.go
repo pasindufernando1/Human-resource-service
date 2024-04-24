@@ -56,6 +56,7 @@ func main() {
 	router := gin.Default()
 
 	router.GET("/employees", getEmployees)
+	// router.GET("/employee_details", getEmployees)
 	router.POST("/employees", createEmployee)
 	router.GET("/employees/:id", getEmployeeByID)
 
