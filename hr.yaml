@@ -20,23 +20,21 @@ paths:
             type: integer
       responses:
         '200':
-          description: Successfull pull of employee info
+          description: Successful pull of employee info
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/Employees"
     post:
       description: Creates a new employee in database
-      requestbody:
+      requestBody:
         required: true
         content:
           application/json:
             schema:
-              type: object
               $ref: "#/components/schemas/Employee"
           application/xml:
             schema:
-              type: object
               $ref: "#/components/schemas/Employee"
       responses:
         '200':
@@ -57,48 +55,44 @@ paths:
             type: integer
       responses:
         '200':
-          description: Successfull pull of employee info
+          description: Successful pull of employee info
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/Employees"
     post:
       description: Creates a new employee in database
-      requestbody:
+      requestBody:
         required: true
         content:
           application/json:
             schema:
-              type: object
               $ref: "#/components/schemas/Employee"
           application/xml:
             schema:
-              type: object
               $ref: "#/components/schemas/Employee"
       responses:
         '200':
           description: Successfully created the employee
   /employees/{id}:
     get:
-      description:
-        parameters:
-          - in: path
-            name: id
-            description: The ID of the employee
-            required: true
-            schema:
-              type: integer
+      description: Retrieve information about a specific employee
+      parameters:
+        - in: path
+          name: id
+          description: The ID of the employee
+          required: true
+          schema:
+            type: integer
       responses:
         '200':
-          description: Successfull pull of employee info
+          description: Successful pull of employee info
           content:
             application/json:
               schema:
-                type: object
                 $ref: "#/components/schemas/Employee"
             application/xml:
               schema:
-                type: object
                 $ref: "#/components/schemas/Employee"
         '404':
           description: Employee not found
@@ -106,6 +100,11 @@ paths:
             application/json:
               example:
                 message: Employee not found
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
 components:
   schemas:
     Employees:
@@ -119,24 +118,24 @@ components:
         id:
           type: integer
           description: The ID of the employee
-        employee name:
+        employee_name:
           type: string
           description: The name of the employee
-        employee title:
+        employee_title:
           type: string
           description: The title of the employee
-        employee salary:
+        employee_salary:
           type: integer
           description: The salary of the employee
-        employee vehicle:
+        employee_vehicle:
           type: string
           description: The vehicle of the employee
-        employee phone imei:
+        employee_phone_imei:
           type: string
-          description: The imei number of the phone of the employee
-        employee credit card:
+          description: The IMEI number of the employee's phone
+        employee_credit_card:
           type: string
           description: The credit card number of the employee
-        employee gender:
+        employee_gender:
           type: string
-          description: The sex of the employee
+          description: The gender of the employee
