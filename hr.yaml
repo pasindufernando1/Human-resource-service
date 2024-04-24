@@ -1,0 +1,120 @@
+openapi: 3.0.0
+info:
+  version: "1.0.0"
+  title: Simple HR API
+  contact:
+    name: pasindu
+    email: pasinduf@wso2.com
+  license:
+    name: pasindulicense
+    url: http://license.foo.com
+
+servers:
+  # Added by API Auto Mocking Plugin
+  - description: SwaggerHub API Auto Mocking
+    url: https://virtserver.swaggerhub.com/SULAKSHANA1234567/HR_API/1.0.0
+  - url: https://dev.foo.com/v1
+    description: Dev server
+  - url: https://prod.foo.com/v1
+    description: Prod server
+
+paths:
+  /employees:
+    get:
+      description: Obtain information about employees from HR database
+      parameters:
+        - name: bodyLimit
+          in: query
+          description: The amount of employees returned
+          schema:
+            type: integer
+        - name: pageLimit
+          in: query
+          description: The pages to return employees info
+          schema:
+            type: integer
+      responses:
+        200:
+          description: Successfull pull of employee info
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Employees"
+    post:
+      description: Creates a new employee in database
+      requestbody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              $ref: "#/components/schemas/Employee"
+          application/xml:
+            schema:
+              type: object
+              $ref: "#/components/schemas/Employee"
+      responses:
+        200:
+          description: Successfully created the employee
+  /employees/{id}:
+    get:
+      description:
+        parameters:
+          - in: path
+            name: id
+            description: The ID of the employee
+            required: true
+            schema:
+              type: integer
+      responses:
+        200:
+          description: Successfull pull of employee info
+          content:
+            application/json:
+              schema:
+                type: object
+                $ref: "#/components/schemas/Employee"
+            application/xml:
+              schema:
+                type: object
+                $ref: "#/components/schemas/Employee"
+        404:
+          description: Employee not found
+          content:
+            application/json:
+              example:
+                message: Employee not found
+components:
+  schemas:
+    Employees:
+      description: A list of employees
+      type: array
+      items:
+        $ref: "#/components/schemas/Employee"
+    Employee:
+      type: object
+      properties:
+        id: 
+          type: integer
+          description: The ID of the employee
+        employee name:
+          type: string
+          description: The name of the employee 
+        employee title:
+          type: string
+          description: The title of the employee
+        employee salary:
+          type: integer
+          description: The salary of the employee
+        employee vehicle:
+          type: string
+          description: The vehicle of the employee
+        employee phone imei:
+          type: string
+          description: The imei number of the phone of the employee
+        employee credit card:
+          type: string
+          description: The credit card number of the employee
+        employee gender:
+          type: string
+          description: The sex of the employee
