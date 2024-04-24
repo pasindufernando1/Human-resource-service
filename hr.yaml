@@ -1,4 +1,4 @@
-openapi: 3.0.0
+openapi: 3.0.1
 info:
   version: "1.0.0"
   title: Simple HR API
@@ -19,7 +19,7 @@ paths:
           schema:
             type: integer
       responses:
-        200:
+        '200':
           description: Successfull pull of employee info
           content:
             application/json:
@@ -39,7 +39,7 @@ paths:
               type: object
               $ref: "#/components/schemas/Employee"
       responses:
-        200:
+        '200':
           description: Successfully created the employee
   /employee_details:
     get:
@@ -56,7 +56,7 @@ paths:
           schema:
             type: integer
       responses:
-        200:
+        '200':
           description: Successfull pull of employee info
           content:
             application/json:
@@ -76,7 +76,7 @@ paths:
               type: object
               $ref: "#/components/schemas/Employee"
       responses:
-        200:
+        '200':
           description: Successfully created the employee
   /employees/{id}:
     get:
@@ -89,7 +89,7 @@ paths:
             schema:
               type: integer
       responses:
-        200:
+        '200':
           description: Successfull pull of employee info
           content:
             application/json:
@@ -100,7 +100,7 @@ paths:
               schema:
                 type: object
                 $ref: "#/components/schemas/Employee"
-        404:
+        '404':
           description: Employee not found
           content:
             application/json:
