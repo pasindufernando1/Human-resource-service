@@ -55,10 +55,10 @@ func handleNotImplemented(c *gin.Context) {
 func main() {
 	router := gin.Default()
 
-	router.GET("/employees", getEmployees)
+	//router.GET("/employees", getEmployees)
 	// router.GET("/employee_details", getEmployees)
-	router.POST("/employees", createEmployee)
-	router.GET("/employees/:id", getEmployeeByID)
+	//router.POST("/employees", createEmployee)
+	//router.GET("/employees/:id", getEmployeeByID)
 
 	router.NoRoute(handleNotImplemented)
 
